@@ -1,0 +1,109 @@
+.textbox {
+    position: absolute;
+    width: 80px;
+    height: 50px;
+}
+
+.textbox1 {
+    position: absolute;
+    width: 80px;
+    height: 50px;
+}
+
+.textbox-pic {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+.textbox-pic1 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+}
+
+.containment {
+    position: relative;
+    width: 1200px;
+    height: 1200px;
+    border: 1px solid gray;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.img-template {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.crop-img {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-save {
+    position: relative;
+    margin-top: 10px;
+}
+
+.checkbox-menu {
+    margin-left: 20px;
+}
+
+.txt-edt {
+    margin: 10px;
+}
+
+.ui-resizable-handle.ui-resizable-ne {
+    background: red;
+}
+
+.ui-resizable-sw{
+    background: red;
+}
+
+.ui-resizable-handle.ui-resizable-nw{
+    background: red;
+}
+
+.ui-icon .ui-icon-gripsmall-diagonal-se {
+    display: block;
+}
+
+.ui-resizable-se {
+    background: red;
+    width: 3px;
+    height: 3px;
+    right: -1px;
+    bottom: -1px;
+}
+.ui-resizable-sw {
+    width: 3px;
+    height: 3px;
+    left: -1px;
+    bottom: -1px;
+}
+
+.ui-resizable-nw {
+    width: 3px;
+    height: 3px;
+    left: -1px;
+    top: -1px;
+}
+.ui-resizable-ne {
+    width: 3px;
+    height: 3px;
+    right: -1px;
+    top: -1px;
+}
+
+.btn.btn-primary.color{
+    height: 37px;
+}

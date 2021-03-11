@@ -107,3 +107,35 @@
 .btn.btn-primary.color{
     height: 37px;
 }
+
+.ui-resizable-e {
+    background: red;
+    width: 3px;
+    height: 3px;
+    right: -1px;
+    top: 50%;
+}
+
+.ui-resizable-w {
+    background: red;
+    width: 3px;
+    height: 3px;
+    left: -1px;
+    top: 50%;
+}
+
+.ui-resizable-n {
+    background: red;
+    width: 3px;
+    height: 3px;
+    left: 50%;
+    top: -1px;
+}
+
+.ui-resizable-s {
+    background: red;
+    width: 3px;
+    height: 3px;
+    left: 50%;
+    bottom: -1px;
+}

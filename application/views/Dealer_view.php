@@ -209,7 +209,7 @@
                     <select class="selectsize btn btn-primary dropdown-toggle" id="sizeig" onchange="fontsize('sizeig', 'ig');">
                         <option>--</option>
                     </select>
-                    <select class="selectfont btn btn-primary dropdown-toggle" id = "fontig" onclick="fontstyle('fontig','ig');">
+                    <select class="selectfont btn btn-primary dropdown-toggle" id="fontig" onclick="fontstyle('fontig','ig');">
                         <option>--</option>
                     </select>
                 </div>
@@ -219,21 +219,22 @@
             <input class="form-check-input" type="checkbox" id="cb_address" name="cb_address" onclick="showbox('cb_address','b_address','txt_address');">
             <label for="cb_address">พิกัดนัดรับสินค้า</label>
             <div id='txt_address' style="display:none; margin-top:5px">
-            <div class="btn-group" role="group">
-                <button class="btn btn-primary" onclick="Bold('address')"> <i class="fas fa-bold"></i> </button>
-                <button class="btn btn-primary" onclick="italic('address')"> <i class="fas fa-italic"></i> </button>
-                <button class="btn btn-primary" onclick="underline('address')"> <i class="fas fa-underline"></i> </button>
-                <button class="btn btn-primary" onclick="leftprg('address')"><i class="fas fa-align-left"></i></button>
-                <button class="btn btn-primary" onclick="center('address')"><i class="fas fa-align-center"></i></button>
-                <button class="btn btn-primary" onclick="rightprg('address')"> <i class="fas fa-align-right"></i> </button>
-                <input class="btn btn-primary color" id="coloraddress" type="color" onclick="changecolor('coloraddress','address')">
-                <select class="selectsize btn btn-primary dropdown-toggle" id="sizeaddress" onchange="fontsize('sizeaddress', 'address');">
-                    <option>--</option>
-                </select>
-                <select class="selectfont btn btn-primary dropdown-toggle" id="fontaddress" onclick="fontstyle('fontaddress','address');">
-                    <option>--</option>
-                </select>
-            </div></div>
+                <div class="btn-group" role="group">
+                    <button class="btn btn-primary" onclick="Bold('address')"> <i class="fas fa-bold"></i> </button>
+                    <button class="btn btn-primary" onclick="italic('address')"> <i class="fas fa-italic"></i> </button>
+                    <button class="btn btn-primary" onclick="underline('address')"> <i class="fas fa-underline"></i> </button>
+                    <button class="btn btn-primary" onclick="leftprg('address')"><i class="fas fa-align-left"></i></button>
+                    <button class="btn btn-primary" onclick="center('address')"><i class="fas fa-align-center"></i></button>
+                    <button class="btn btn-primary" onclick="rightprg('address')"> <i class="fas fa-align-right"></i> </button>
+                    <input class="btn btn-primary color" id="coloraddress" type="color" onclick="changecolor('coloraddress','address')">
+                    <select class="selectsize btn btn-primary dropdown-toggle" id="sizeaddress" onchange="fontsize('sizeaddress', 'address');">
+                        <option>--</option>
+                    </select>
+                    <select class="selectfont btn btn-primary dropdown-toggle" id="fontaddress" onclick="fontstyle('fontaddress','address');">
+                        <option>--</option>
+                    </select>
+                </div>
+            </div>
         </div>
     </div>
 </div>

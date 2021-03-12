@@ -73,14 +73,19 @@ class Dealer extends CI_Controller
 
     public function readtemplate()
     {
-        $stynum = $this->input->post('stylenumber');
-        $data['style'] = $this->template_model->readstyle($stynum);
+        $memberid = $this->input->post('memberid');
         $data['fontoption'] = $this->template_model->readfont();
-        $this->load->view('jquery');
-        $this->load->view('css');
-        $this->load->view('navbar');
-        $this->load->view('template_view', $data);
-        $this->load->view('js');
+        $data['style'] = $this->template_model->readstyle($memberid);
+        if ($data['style'] == FALSE) {
+            echo "<script type='text/javascript'>alert('No Template !');</script>";
+            redirect('home/showcard','refresh');
+        } else {
+            $this->load->view('jquery');
+            $this->load->view('css');
+            $this->load->view('navbar');
+            $this->load->view('template_view', $data);
+            $this->load->view('js');
+        }
     }
 
     public function edittemplate()

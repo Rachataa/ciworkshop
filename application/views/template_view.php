@@ -8,7 +8,7 @@
 <?php } ?>
 
 <form action="<?php echo site_url('Dealer/readtemplate'); ?>" method="POST">
-    <input type="text" id="stylenumber" name="stylenumber" placeholder="User ID">
+    <input type="text" id="memberid" name="memberid" placeholder="User ID">
     <input type="submit" value="LOAD STYLE" id="load">
 </form>
 <div class="containment" id="containment">
@@ -16,7 +16,7 @@
         <img id="background" src="<?php echo base_url() . 'img/inputlogo.png' ?>" />
     </div>
     <div id="profilepic" class="textbox-pic1" style="display: none;">
-        <img id="propic" class="img-template" src="<?php echo base_url() . 'img/profilepiclogo.png' ?>" />
+        <img id="propic" class="img-template" src="<?php echo base_url() . 'img/profilepiclogo.png' ?>" style="object-fit: cover;"/>
     </div>
     <div id="firstname" class="textbox1" style="display: none;">ชื่อ</div>
     <div id="lastname" class="textbox1" style="display: none;">นามสกุล</div>

@@ -78,22 +78,17 @@ $(function () {
             }
         })
     })
-
     $("#font").change(function () {
         let filename = $(this).val();
-        let lastIndex = filename.lastIndexOf("\\");
-        if (lastIndex >= 0) {
-            filename = filename.substring(lastIndex + 1);
-        }
-        $('#fontname').val(filename);
+        let fontname = filename.substring(filename.lastIndexOf("\\") + 1, filename.lastIndexOf('.'));
+        $('#fontname').val(fontname);
     });
 });
 
 $(function () {
     $("#save").click(function () {
         let formData = new FormData();
-        let cb_fname = document.getElementById("cb_fname");
-        if (cb_fname.checked == true) {
+        if ($("#cb_fname").prop('checked')) {
             let firstname = $("#firstname").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -101,7 +96,7 @@ $(function () {
         } else {
             formData.append('firstname', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_lname").prop('checked', true)){
+        if ($("#cb_lname").prop('checked')) {
             let lastname = $("#lastname").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -109,7 +104,7 @@ $(function () {
         } else {
             formData.append('lastname', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_address").checked == true) {
+        if ($("#cb_address").prop('checked')) {
             let address = $("#address").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -117,7 +112,7 @@ $(function () {
         } else {
             formData.append('address', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_nname").checked == true) {
+        if ($("#cb_nname").prop('checked')) {
             let nname = $("#nname").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -125,7 +120,7 @@ $(function () {
         } else {
             formData.append('nname', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_tel").checked == true) {
+        if ($("#cb_tel").prop('checked')) {
             let tel = $("#tel").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -133,7 +128,7 @@ $(function () {
         } else {
             formData.append('tel', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_line").checked == true) {
+        if ($("#cb_line").prop('checked')) {
             let line = $("#line").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -141,7 +136,7 @@ $(function () {
         } else {
             formData.append('line', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_qrline").checked == true) {
+        if ($("#cb_qrline").prop('checked')) {
             let qrline = $("#qrline").css([
                 "width", "height", "top", "left", "display", "z-index"
             ]);
@@ -149,7 +144,7 @@ $(function () {
         } else {
             formData.append('qrline', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_fb").checked == true) {
+        if ($("#cb_fb").prop('checked')) {
             let fb = $("#fb").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -157,7 +152,7 @@ $(function () {
         } else {
             formData.append('fb', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_ig").checked == true) {
+        if ($("#cb_ig").prop('checked')) {
             let ig = $("#ig").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -165,7 +160,7 @@ $(function () {
         } else {
             formData.append('ig', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_profilepic").checked == true) {
+        if ($("#cb_profilepic").prop('checked')) {
             let profilepic = $("#profilepic").css([
                 "width", "height", "top", "left", "display", "z-index"
             ]);
@@ -177,7 +172,7 @@ $(function () {
         formData.append('containment', JSON.stringify($('#containment').css(["width", "height"])));
         formData.append('file', $('#img')[0].files[0]);
         formData.append('privilege', $('#privilege').val());
-        
+
         let site_url = $('#site_url').val();
         $.ajax({
             url: site_url + '/dealer/savetemplate',
@@ -188,9 +183,9 @@ $(function () {
             data: formData,
             dataType: "json",
             success: function ($statusfile) {
-                if ($statusfile.status == '0') { 
+                if ($statusfile.status == '0') {
                     alert($statusfile.message);
-                } else { 
+                } else {
                     alert($statusfile.message);
                     location.reload(true);
                 }
@@ -203,7 +198,7 @@ $(function () {
     $("#edit").click(function () {
         let formData = new FormData();
 
-        if ($("#cb_fname").checked == true) {
+        if ($("#cb_fname").prop('checked')) {
             let firstname = $("#firstname").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -211,7 +206,7 @@ $(function () {
         } else {
             formData.append('firstname', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_lname").checked == true) {
+        if ($("#cb_lname").prop('checked')) {
             let lastname = $("#lastname").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -219,7 +214,7 @@ $(function () {
         } else {
             formData.append('lastname', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_address").checked == true) {
+        if ($("#cb_address").prop('checked')) {
             let address = $("#address").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -227,7 +222,7 @@ $(function () {
         } else {
             formData.append('address', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_nname").checked == true) {
+        if ($("#cb_nname").prop('checked')) {
             let nname = $("#nname").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -235,7 +230,7 @@ $(function () {
         } else {
             formData.append('nname', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_tel").checked == true) {
+        if ($("#cb_tel").prop('checked')) {
             let tel = $("#tel").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -243,7 +238,7 @@ $(function () {
         } else {
             formData.append('tel', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_line").checked == true) {
+        if ($("#cb_line").prop('checked')) {
             let line = $("#line").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -251,7 +246,7 @@ $(function () {
         } else {
             formData.append('line', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_qrline").checked == true) {
+        if ($("#cb_qrline").prop('checked')) {
             let qrline = $("#qrline").css([
                 "width", "height", "top", "left", "display", "z-index"
             ]);
@@ -259,7 +254,7 @@ $(function () {
         } else {
             formData.append('qrline', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_fb").checked == true) {
+        if ($("#cb_fb").prop('checked')) {
             let fb = $("#fb").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -267,7 +262,7 @@ $(function () {
         } else {
             formData.append('fb', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_ig").checked == true) {
+        if ($("#cb_ig").prop('checked')) {
             let ig = $("#ig").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -275,7 +270,7 @@ $(function () {
         } else {
             formData.append('ig', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_profilepic").checked == true) {
+        if ($("#cb_profilepic").prop('checked')) {
             let profilepic = $("#profilepic").css([
                 "width", "height", "top", "left", "display", "z-index"
             ]);
@@ -298,9 +293,9 @@ $(function () {
             data: formData,
             dataType: "json",
             success: function ($statusfile) {
-                if ($statusfile.status == '0') { 
+                if ($statusfile.status == '0') {
                     alert($statusfile.message);
-                } else { 
+                } else {
                     alert($statusfile.message);
                     location.reload(true);
                 }

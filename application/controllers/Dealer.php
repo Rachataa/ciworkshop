@@ -76,8 +76,11 @@ class Dealer extends CI_Controller
         $memberid = $this->input->post('memberid');
         $data['fontoption'] = $this->template_model->readfont();
         $data['style'] = $this->template_model->readstyle($memberid);
-        if ($data['style'] == FALSE) {
+        if ($data['style'] === '0') {
             echo "<script type='text/javascript'>alert('No Template !');</script>";
+            redirect('home/showcard','refresh');
+        } else if ($data['style'] === '00') {
+            echo "<script type='text/javascript'>alert('No Member ID !');</script>";
             redirect('home/showcard','refresh');
         } else {
             $this->load->view('jquery');

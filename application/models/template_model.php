@@ -14,17 +14,23 @@ class Template_model extends CI_Model
 
     public function readstyle($id)
     {
-        $this->db->select('*');
-        $this->db->from('tb_member');
-        $this->db->join('tb_template', 'tb_template.p_id = tb_member.p_id');
         $this->db->where('m_id', $id);
-
-        $query = $this->db->get();
-        if ($query->num_rows() > 0) {
-            $data = $query->row();
-            return $data;
+        $member = $this->db->get('tb_member');
+        if ($member->num_rows() > 0) {
+            $this->db->select('*');
+            $this->db->from('tb_member');
+            $this->db->join('tb_template', 'tb_template.p_id = tb_member.p_id');
+            $this->db->where('m_id', $id);
+            $query = $this->db->get();
+            if ($query->num_rows() > 0) {
+                $data = $query->row();
+                return $data;
+            } else {
+                return '0';
+            }
+        } else {
+            return '00';
         }
-        return FALSE;
     }
 
     public function checkduplicateprivilege($privilege)
@@ -78,9 +84,9 @@ class Template_model extends CI_Model
             return FALSE;
         }
     }
-    
+
     public function deltemplate($p_id)
     {
-        $this->db->delete('tb_template', array('p_id'=>$p_id));
+        $this->db->delete('tb_template', array('p_id' => $p_id));
     }
 }

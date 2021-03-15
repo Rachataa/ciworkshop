@@ -78,13 +78,14 @@ class Dealer extends CI_Controller
         $data['style'] = $this->template_model->readstyle($memberid);
         if ($data['style'] === '0') {
             echo "<script type='text/javascript'>alert('No Template !');</script>";
-            redirect('home/showcard','refresh');
+            redirect('home/showcard', 'refresh');
         } else if ($data['style'] === '00') {
             echo "<script type='text/javascript'>alert('No Member ID !');</script>";
-            redirect('home/showcard','refresh');
+            redirect('home/showcard', 'refresh');
         } else {
             $this->load->view('jquery');
             $this->load->view('css');
+            $this->load->view('header');
             $this->load->view('navbar');
             $this->load->view('template_view', $data);
             $this->load->view('js');
@@ -167,5 +168,10 @@ class Dealer extends CI_Controller
     {
         $this->template_model->deltemplate($p_id);
         redirect('', 'refresh');
+    }
+    public function deletefont($id)
+    {
+        $this->template_model->delfont($id);
+        redirect('home/uploadfont', 'refresh');
     }
 }

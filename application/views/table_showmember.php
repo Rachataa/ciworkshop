@@ -15,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($query as $row) { ?>
+        <?php foreach ($member as $row) { ?>
             <tr>
                 <td><?php echo $row->m_id; ?></td>
                 <td><?php echo $row->m_name; ?></td>

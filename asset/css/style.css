@@ -48,11 +48,6 @@
     justify-content: center;
 }
 
-.button-save {
-    position: relative;
-    margin-top: 10px;
-}
-
 .checkbox-menu {
     margin-left: 20px;
 }
@@ -104,7 +99,7 @@
     top: -1px;
 }
 
-.btn.btn-primary.color{
+.btn.btn-secondary.color{
     height: 37px;
 }
 
@@ -139,3 +134,17 @@
     left: 50%;
     bottom: -1px;
 }
+
+.form-check-input:checked{
+    background-color: gray;
+    border-color: gray;
+}
+
+.header {
+    padding: 60px;
+    text-align: center;
+    background: #7d8080;
+    color: white;
+    font-size: 30px;
+}
+

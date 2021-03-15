@@ -14,6 +14,7 @@ class Home extends CI_Controller
         $data['query'] = $this->template_model->readprivilege();
         $this->load->view('jquery');
         $this->load->view('css');
+        $this->load->view('header');
         $this->load->view('navbar');
         $this->load->view('home_view', $data);
         $this->load->view('js');
@@ -24,6 +25,7 @@ class Home extends CI_Controller
         $data['fontoption'] = $this->template_model->readfont();
         $this->load->view('jquery');
         $this->load->view('css');
+        $this->load->view('header');
         $this->load->view('navbar');
         $this->load->view('dealer_view', $data);
         $this->load->view('js');
@@ -34,6 +36,7 @@ class Home extends CI_Controller
         $data['fontoption'] = $this->template_model->readfont();
         $this->load->view('jquery');
         $this->load->view('css');
+        $this->load->view('header');
         $this->load->view('navbar');
         $this->load->view('template_view', $data);
         $this->load->view('js');
@@ -41,18 +44,21 @@ class Home extends CI_Controller
 
     public function uploadfont()
     {
+        $data['fontoption'] = $this->template_model->readfont(); //query member
         $this->load->view('jquery');
         $this->load->view('css');
+        $this->load->view('header');
         $this->load->view('navbar');
-        $this->load->view('uploadfont_view');
+        $this->load->view('uploadfont_view', $data);
         $this->load->view('js');
     }
 
     public function showmember()
     {
-        $data['query'] = $this->member_model->readmember(); //query member
+        $data['member'] = $this->member_model->readmember(); //query member
         $this->load->view('jquery');
         $this->load->view('css');
+        $this->load->view('header');
         $this->load->view('navbar');
         $this->load->view('table_showmember', $data); // show member in talble
         $this->load->view('js');

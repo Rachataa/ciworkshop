@@ -1,5 +1,33 @@
-<label for="fontname">Font Name</label>
-<input type="text" id="fontname" name="fontname" placeholder="Arial"><br><br>
-<input type="file" id="font" name="font" accept=".ttf,.otf,.woff"><br><br>
-<input type="hidden" id="site_url" value="<?php echo site_url() ?>">
-<button type="submit" id="uploadfont" name="uploadfont">Upload</button>
+<div class="container">
+    <div class="mb-3 col-3 mt-3">
+        <label for="fontname" class="form-label">Font Name</label>
+        <input class="form-control" type="text" id="fontname" name="fontname" placeholder="Arial">
+        <input type="hidden" id="site_url" value="<?php echo site_url() ?>">
+    </div>
+    <div class="input-group">
+        <div class="col-3">
+            <input class="form-control" type="file" id="font" name="font" accept=".ttf,.otf,.woff">
+        </div>
+        <button class="btn btn-secondary" type="submit" id="uploadfont" name="uploadfont">Upload</button>
+    </div>
+    <table class="table table-borderless table-hover" style="text-align: center; margin-top : 30px">
+        <thead class="table-dark">
+            <tr>
+                <td>ID</td>
+                <td>FONT NAME</td>
+                <td>FONT</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($fontoption as $row) { ?>
+                <tr>
+                    <td><?php echo $row->id; ?></td>
+                    <td><?php echo $row->fontname; ?></td>
+                    <td><?php echo $row->font; ?></td>
+                    <td><a class="btn btn-outline-danger" href="<?php echo site_url('Dealer/deletefont/') . $row->id ?>" onclick="return confirm('ยืนยัน')">DELETE</a></td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>

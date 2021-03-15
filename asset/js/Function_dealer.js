@@ -59,6 +59,24 @@ $(function () {
     })
 })
 
+// $(function () {
+//     $("#downloadpic").click(function () {
+//         domtoimage.toJpeg($('containment'))
+//             .then(function (dataUrl) {
+//                 var link = document.createElement('a');
+//                 link.download = 'my-image-name.jpeg';
+//                 link.href = dataUrl;
+//                 link.click();
+//             });
+//     })
+// })
+
+$(function () {
+    $("#previewcard").click(function () {
+       window.open("https://www.google.com","_blank","toolbar=yes")
+    })
+})
+
 $(function () {
     $("#uploadfont").click(function () {
         let formData = new FormData();

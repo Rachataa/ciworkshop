@@ -89,4 +89,8 @@ class Template_model extends CI_Model
     {
         $this->db->delete('tb_template', array('p_id' => $p_id));
     }
+    public function delfont($id)
+    {
+        $this->db->delete('tb_font', array('id' => $id));
+    }
 }

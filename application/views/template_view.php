@@ -1,37 +1,44 @@
 <?php foreach ($fontoption as $row) { ?>
-<style>
-    @font-face {
-        font-family: <?php echo $row->fontname ?>;
-        src: url(<?php echo base_url(). 'font/'. $row->font ?>);
-    }
-</style>
+    <style>
+        @font-face {
+            font-family: <?php echo $row->fontname ?>;
+            src: url(<?php echo base_url() . 'font/' . $row->font ?>);
+        }
+    </style>
 <?php } ?>
+<div class="container">
+    <form action="<?php echo site_url('Dealer/readtemplate'); ?>" method="POST">
+        <div class="input-group mb-3 mt-3">
+            <div class="col-2">
+                <input type="text" class="form-control" id="memberid" name="memberid" placeholder="User ID">
+            </div>
+            <button class="btn btn-secondary" type="submit" value="LOAD STYLE" id="load">LOAD STYLE</button>
+        </div>
+    </form>
+    <div class="containment mb-3" id="containment">
+        <div class="crop-img">
+            <img id="background" src="<?php echo base_url() . 'img/inputlogo.png' ?>" />
+        </div>
+        <div id="profilepic" class="textbox-pic1" style="display: none;">
+            <img id="propic" class="img-template" src="<?php echo base_url() . 'img/profilepiclogo.png' ?>" style="object-fit: cover;" />
+        </div>
+        <div id="firstname" class="textbox1" style="display: none;">ชื่อ</div>
+        <div id="lastname" class="textbox1" style="display: none;">นามสกุล</div>
+        <div id="nname" class="textbox1" style="display: none;">ชื่อเล่น</div>
+        <div id="tel" class="textbox1" style="display: none;">เบอร์โทรศัพท์</div>
+        <div id="line" class="textbox1" style="display: none;">Line</div>
+        <div id="qrline" class="textbox-pic1" style="display: none;">
+            <img id="qrpic" class="img-template" src="<?php echo base_url() . 'img/qrlogo.png' ?>" />
+        </div>
+        <div id="fb" class="textbox1" style="display: none;">Facebook</div>
+        <div id="ig" class="textbox1" style="display: none;">Instagram</div>
+        <div id="address" class="textbox1" style="display: none;">พิกัดนัดรับสินค้า</div>
+    </div>
+    <button class="btn btn-primary mb-3" id="downloadpic" name="downloadpic">DOWNLOAD</button>
+    <button class="btn btn-primary mb-3" id="previewcard" name="previewcard">PREVIEW</button>
 
-<form action="<?php echo site_url('Dealer/readtemplate'); ?>" method="POST">
-    <input type="text" id="memberid" name="memberid" placeholder="User ID">
-    <input type="submit" value="LOAD STYLE" id="load">
-</form>
-<div class="containment" id="containment">
-    <div class="crop-img">
-        <img id="background" src="<?php echo base_url() . 'img/inputlogo.png' ?>" />
-    </div>
-    <div id="profilepic" class="textbox-pic1" style="display: none;">
-        <img id="propic" class="img-template" src="<?php echo base_url() . 'img/profilepiclogo.png' ?>" style="object-fit: cover;"/>
-    </div>
-    <div id="firstname" class="textbox1" style="display: none;">ชื่อ</div>
-    <div id="lastname" class="textbox1" style="display: none;">นามสกุล</div>
-    <div id="nname" class="textbox1" style="display: none;">ชื่อเล่น</div>
-    <div id="tel" class="textbox1" style="display: none;">เบอร์โทรศัพท์</div>
-    <div id="line" class="textbox1" style="display: none;">Line</div>
-    <div id="qrline" class="textbox-pic1" style="display: none;">
-        <img id="qrpic" class="img-template" src="<?php echo base_url() . 'img/qrlogo.png' ?>" />
-    </div>
-    <div id="fb" class="textbox1" style="display: none;">Facebook</div>
-    <div id="ig" class="textbox1" style="display: none;">Instagram</div>
-    <div id="address" class="textbox1" style="display: none;">พิกัดนัดรับสินค้า</div>
 </div>
-<br>
-<button id="downloadpic" name="downloadpic">DOWNLOAD</button>
+
 
 <script>
     $(function() {
@@ -61,4 +68,3 @@
         $("#propic").attr("src", "<?php echo base_url() . 'imgmember/' . $style->m_pic; ?>");
     });
 </script>
-

@@ -2,11 +2,11 @@
     <table class="table table-borderless table-hover" style="text-align: center; margin-top : 30px">
         <thead class="table-dark">
             <tr>
-                <td>Privilege ID</td>
-                <td>Code</td>
-                <td>Name</td>
-                <td>Condition</td>
-                <td>Status</td>
+                <td>รหัส</td>
+                <td>รหัส</td>
+                <td>ชื่อ</td>
+                <td>เงื่อนไข</td>
+                <td>บัตรตัวแทน</td>
                 <td>ดำเนินการ</td>
             </tr>
         </thead>
@@ -19,7 +19,7 @@
                     <td><?php echo $row->p_conditions; ?></td>
                     <?php $status = $this->template_model->checktemplate($row->p_id);
                     if ($status == TRUE) { ?>
-                        <td>Active</td>
+                        <td>เปิดใช้งาน</td>
                         <td class="dropdown">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                 ดำเนินการ
@@ -30,7 +30,7 @@
                             </ul>
                         </td>
                     <?php } else { ?>
-                        <td>Not Active</a></td>
+                        <td>ปิดใช้งาน</a></td>
                         <td class="dropdown">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                 ดำเนินการ

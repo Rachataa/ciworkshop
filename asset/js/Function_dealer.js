@@ -51,29 +51,22 @@ $(function () {
     })
 });
 
-$(function () {
+$(document).ready(function () {
     $("#downloadpic").click(function () {
-        domtoimage.toBlob($('containment')).then(function (blob) {
-            window.saveAs(blob, 'dealer.png');
-        });
+        domtoimage.toBlob(document.getElementById('containment'))
+            .then(function (blob) {
+                window.saveAs(blob, 'dealer.png');
+            });
     })
 })
 
-// $(function () {
-//     $("#downloadpic").click(function () {
-//         domtoimage.toJpeg($('containment'))
-//             .then(function (dataUrl) {
-//                 var link = document.createElement('a');
-//                 link.download = 'my-image-name.jpeg';
-//                 link.href = dataUrl;
-//                 link.click();
-//             });
-//     })
-// })
-
 $(function () {
     $("#previewcard").click(function () {
-       window.open("https://www.google.com","_blank","toolbar=yes")
+        var largeImage = document.getElementById('containment');
+        console.log(largeImage.style.width)
+        console.log(largeImage.style.height)
+        var w = window.open('', '_blank', 'location=yes,scrollbars=yes,status=yes');
+        w.document.write(largeImage.outerHTML);
     })
 })
 
@@ -96,6 +89,7 @@ $(function () {
             }
         })
     })
+
     $("#font").change(function () {
         let filename = $(this).val();
         let fontname = filename.substring(filename.lastIndexOf("\\") + 1, filename.lastIndexOf('.'));

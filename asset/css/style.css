@@ -26,7 +26,7 @@
     position: relative;
     width: 1200px;
     height: 1200px;
-    border: 1px solid gray;
+    border: 1px solid rgb(213, 213, 213);
 }
 
 .flex-container {
@@ -179,4 +179,13 @@
 .fixtemplate {
     width: 100%;
     overflow: auto;
+}
+
+footer {
+    position: absolute;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(114, 114, 114);
+    color: white;
+    width: 100%;
 }

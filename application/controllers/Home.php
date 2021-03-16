@@ -18,6 +18,7 @@ class Home extends CI_Controller
         $this->load->view('navbar');
         $this->load->view('home_view', $data);
         $this->load->view('js');
+        $this->load->view('footer');
     }
 
     public function design()
@@ -29,6 +30,7 @@ class Home extends CI_Controller
         $this->load->view('navbar');
         $this->load->view('dealer_view', $data);
         $this->load->view('js');
+        $this->load->view('footer');
     }
 
     public function showcard()
@@ -40,6 +42,7 @@ class Home extends CI_Controller
         $this->load->view('navbar');
         $this->load->view('template_view', $data);
         $this->load->view('js');
+        $this->load->view('footer');
     }
 
     public function uploadfont()
@@ -51,6 +54,7 @@ class Home extends CI_Controller
         $this->load->view('navbar');
         $this->load->view('uploadfont_view', $data);
         $this->load->view('js');
+        $this->load->view('footer');
     }
 
     public function showmember()
@@ -62,5 +66,6 @@ class Home extends CI_Controller
         $this->load->view('navbar');
         $this->load->view('table_showmember', $data); // show member in talble
         $this->load->view('js');
+        $this->load->view('footer');
     }
 }

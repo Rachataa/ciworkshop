@@ -15,7 +15,7 @@
             <button class="btn btn-secondary" type="submit" value="LOAD STYLE" id="load">เรียกดู</button>
         </div>
     </form>
-    
+
     <div class="fixtemplate">
         <div class="containment mb-3" id="containment" style="position: relative;">
             <div class="crop-img" style="position: absolute;">
@@ -37,11 +37,9 @@
             <div id="address" class="textbox1" style="display: none; position: absolute;">พิกัดนัดรับสินค้า</div>
         </div>
     </div>
-    <button class="btn btn-primary mb-3" id="downloadpic" name="downloadpic">บันทึกรูปภาพ</button>
-    <button class="btn btn-primary mb-3" id="previewcard" name="previewcard">แสดงตัวอย่าง</button>
-
+    <button class="btn btn-success mb-3" id="downloadpic" name="downloadpic">บันทึกรูปภาพ</button>
+    <button class="btn btn-warning mb-3" id="previewcard" name="previewcard">แสดงตัวอย่าง</button>
 </div>
-
 
 <script>
     $(function() {

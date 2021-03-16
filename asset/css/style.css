@@ -60,11 +60,11 @@
     background: red;
 }
 
-.ui-resizable-sw{
+.ui-resizable-sw {
     background: red;
 }
 
-.ui-resizable-handle.ui-resizable-nw{
+.ui-resizable-handle.ui-resizable-nw {
     background: red;
 }
 
@@ -79,6 +79,7 @@
     right: -1px;
     bottom: -1px;
 }
+
 .ui-resizable-sw {
     width: 3px;
     height: 3px;
@@ -92,6 +93,7 @@
     left: -1px;
     top: -1px;
 }
+
 .ui-resizable-ne {
     width: 3px;
     height: 3px;
@@ -99,7 +101,7 @@
     top: -1px;
 }
 
-.btn.btn-secondary.color{
+.btn.btn-secondary.color {
     height: 30px;
     width: 30px;
     padding: 3;
@@ -137,7 +139,7 @@
     bottom: -1px;
 }
 
-.form-check-input:checked{
+.form-check-input:checked {
     background-color: gray;
     border-color: gray;
 }
@@ -162,4 +164,19 @@
     padding: 0px;
     height: 30px;
     padding-left: 5px;
+}
+
+.fixcontent {
+    overflow: auto;
+    width: 70%;
+}
+
+.fixtxtedt {
+    overflow: auto;
+    width: 30%;
+}
+
+.fixtemplate {
+    width: 100%;
+    overflow: auto;
 }

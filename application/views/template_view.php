@@ -15,24 +15,27 @@
             <button class="btn btn-secondary" type="submit" value="LOAD STYLE" id="load">เรียกดู</button>
         </div>
     </form>
-    <div class="containment mb-3" id="containment" style="position: relative;">
-        <div class="crop-img" style="position: absolute;">
-            <img id="background" src="<?php echo base_url() . 'img/inputlogo.png' ?>" />
+    
+    <div class="fixtemplate">
+        <div class="containment mb-3" id="containment" style="position: relative;">
+            <div class="crop-img" style="position: absolute;">
+                <img id="background" src="<?php echo base_url() . 'img/inputlogo.png' ?>" />
+            </div>
+            <div id="profilepic" class="textbox-pic1" style="display: none; position: absolute;">
+                <img id="propic" class="img-template" src="<?php echo base_url() . 'img/profilepiclogo.png' ?>" style="object-fit: cover; width: 100%; height: 100%;" />
+            </div>
+            <div id="firstname" class="textbox1" style="display: none; position: absolute;">ชื่อ</div>
+            <div id="lastname" class="textbox1" style="display: none; position: absolute;">นามสกุล</div>
+            <div id="nname" class="textbox1" style="display: none; position: absolute;">ชื่อเล่น</div>
+            <div id="tel" class="textbox1" style="display: none; position: absolute;">เบอร์โทรศัพท์</div>
+            <div id="line" class="textbox1" style="display: none; position: absolute;">Line</div>
+            <div id="qrline" class="textbox-pic1" style="display: none; position: absolute;">
+                <img id="qrpic" class="img-template" src="<?php echo base_url() . 'img/qrlogo.png' ?>" style="width: 100%; height: 100%;" />
+            </div>
+            <div id="fb" class="textbox1" style="display: none; position: absolute;">Facebook</div>
+            <div id="ig" class="textbox1" style="display: none; position: absolute;">Instagram</div>
+            <div id="address" class="textbox1" style="display: none; position: absolute;">พิกัดนัดรับสินค้า</div>
         </div>
-        <div id="profilepic" class="textbox-pic1" style="display: none; position: absolute;">
-            <img id="propic" class="img-template" src="<?php echo base_url() . 'img/profilepiclogo.png' ?>" style="object-fit: cover; width: 100%; height: 100%;" />
-        </div>
-        <div id="firstname" class="textbox1" style="display: none; position: absolute;">ชื่อ</div>
-        <div id="lastname" class="textbox1" style="display: none; position: absolute;">นามสกุล</div>
-        <div id="nname" class="textbox1" style="display: none; position: absolute;">ชื่อเล่น</div>
-        <div id="tel" class="textbox1" style="display: none; position: absolute;">เบอร์โทรศัพท์</div>
-        <div id="line" class="textbox1" style="display: none; position: absolute;">Line</div>
-        <div id="qrline" class="textbox-pic1" style="display: none; position: absolute;">
-            <img id="qrpic" class="img-template" src="<?php echo base_url() . 'img/qrlogo.png' ?>" style="width: 100%; height: 100%;"/>
-        </div>
-        <div id="fb" class="textbox1" style="display: none; position: absolute;">Facebook</div>
-        <div id="ig" class="textbox1" style="display: none; position: absolute;">Instagram</div>
-        <div id="address" class="textbox1" style="display: none; position: absolute;">พิกัดนัดรับสินค้า</div>
     </div>
     <button class="btn btn-primary mb-3" id="downloadpic" name="downloadpic">บันทึกรูปภาพ</button>
     <button class="btn btn-primary mb-3" id="previewcard" name="previewcard">แสดงตัวอย่าง</button>

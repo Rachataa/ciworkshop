@@ -1,5 +1,5 @@
 <div class="container">
-    <table class="table table-borderless table-hover mt-3" style="text-align: center;">
+    <table class="table table-striped table-hover mt-3" style="text-align: center;">
         <thead class="table-dark">
             <tr>
                 <td>รหัส</td>

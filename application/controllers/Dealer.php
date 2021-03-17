@@ -14,6 +14,7 @@ class Dealer extends CI_Controller
         $this->load->view('css');
         $this->load->view('Dealer_view');
         $this->load->view('js');
+        
     }
 
     public function savetemplate()
@@ -89,6 +90,7 @@ class Dealer extends CI_Controller
             $this->load->view('navbar');
             $this->load->view('template_view', $data);
             $this->load->view('js');
+            $this->load->view('footer');
         }
     }
 

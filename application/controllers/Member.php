@@ -70,16 +70,8 @@ class Member extends CI_Controller
         $this->member_model->deletemember($m_id); //เรียกใช้ model ฟังก์ชัน delete ส่งค่า m_id ไปเพื่อเทียบในการลบข้อมูล
     }
 
-    public function readdata()
-    {
-        $data['query'] = $this->member_model->readmember(); //รับค่าจาก query ที่ได้จากการ query ใน model ใน func ที่กำหนด
-        $this->load->view('css');
-        $this->load->view('table_showmember', $data);
-        $this->load->view('js');
-    }
-
     public function updatedata()
     {
-        $this->member_model->updatemember(); //เรียกใช้ model ฟังก์ชัน addmember
+        $this->member_model->updatemember(); 
     }
 }

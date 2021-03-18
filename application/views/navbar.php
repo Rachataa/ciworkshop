@@ -6,11 +6,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo site_url('home/design'); ?>">ออกแบบ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo site_url('home/showcard'); ?>">แสดงบัตรตัวแทน</a>
+      <li class="nav-item">
+          <a class="nav-link" href="<?php echo site_url('home/showmember'); ?>">สมาชิก</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?php echo site_url('home/uploadfont'); ?>">อัปโหลดฟอนต์</a>

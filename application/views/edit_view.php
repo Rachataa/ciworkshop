@@ -9,7 +9,7 @@
 <div class="container">
     <div class="mb-3 col-3 mt-3">
         <label for="privilege" class="form-label">ระดับตัวแทน</label>
-        <input class="form-control" type="text" id="privilege" name="privilege" required placeholder="1-6">
+        <input class="form-control" type="text" id="privilege" name="privilege" value="<?php echo $id ?>" disabled>
         <input type="hidden" id="site_url" value="<?php echo site_url() ?>">
     </div>
     <div class="input-group">
@@ -24,46 +24,26 @@
                 <div class="crop-img">
                     <img id="preview" src="<?php echo base_url() . 'img/inputlogo.png' ?>" />
                 </div>
-                <div id="b_profilepic" style="display: none;">
-                    <div id="profilepic" class="textbox-pic">
-                        <img class="img-template" src="<?php echo base_url() . 'img/profilepiclogo.png' ?>" />
-                    </div>
+                <div id="profilepic" class="textbox-pic" style="display: none;">
+                    <img class="img-template" src="<?php echo base_url() . 'img/profilepiclogo.png' ?>" />
                 </div>
-                <div id="b_fname" style="display: none;">
-                    <div id="firstname" class="textbox">ชื่อจริง</div>
+                <div id="firstname" class="textbox" style="display: none;">ชื่อจริง</div>
+                <div id="lastname" class="textbox" style="display: none;">นามสกุล</div>
+                <div id="nname" class="textbox" style="display: none;">ชื่อเล่น</div>
+                <div id="tel" class="textbox" style="display: none;">เบอร์โทรศัพท์</div>
+                <div id="line" class="textbox" style="display: none;">ID LINE</div>
+                <div id="qrline" class="textbox-pic" style="display: none;">
+                    <img id="elemqr" class="img-template" style="z-index: 0;" src="<?php echo base_url() . 'img/qrlogo.png' ?>" />
                 </div>
-                <div id="b_lname" style="display: none;">
-                    <div id="lastname" class="textbox">นามสกุล</div>
-                </div>
-                <div id="b_nname" style="display: none;">
-                    <div id="nname" class="textbox">ชื่อเล่น</div>
-                </div>
-                <div id="b_tel" style="display: none;">
-                    <div id="tel" class="textbox">เบอร์โทรศัพท์</div>
-                </div>
-                <div id="b_line" style="display: none;">
-                    <div id="line" class="textbox">ID LINE</div>
-                </div>
-                <div id="b_qrline" style="display: none;">
-                    <div id="qrline" class="textbox-pic">
-                        <img id="elemqr" class="img-template" style="z-index: 0;" src="<?php echo base_url() . 'img/qrlogo.png' ?>" />
-                    </div>
-                </div>
-                <div id="b_fb" style="display: none;">
-                    <div id="fb" class="textbox">FACEBOOK</div>
-                </div>
-                <div id="b_ig" style="display: none;">
-                    <div id="ig" class="textbox">Instagram</div>
-                </div>
-                <div id="b_address" style="display: none;">
-                    <div id="address" class="textbox">พิกัดนัดรับสินค้า</div>
-                </div>
+                <div id="fb" class="textbox" style="display: none;">FACEBOOK</div>
+                <div id="ig" class="textbox" style="display: none;">Instagram</div>
+                <div id="address" class="textbox" style="display: none;">พิกัดนัดรับสินค้า</div>
             </div>
         </div>
         <div class="fixtxtedt">
             <div class="checkbox-menu">
                 <div class="txt-edt form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="cb_profilepic" name="cb_profilepic" onclick="showbox('cb_profilepic','b_profilepic','editpic');">
+                    <input class="form-check-input" type="checkbox" id="cb_profilepic" name="cb_profilepic" onclick="showbox('cb_profilepic','profilepic','editpic');">
                     <label for="cb_profilepic">รูปประจำตัว</label>
                     <div id="editpic" name="editpic" style="display:none; margin-left:40px; margin-top:5px">
                         <input class="form-check-input" id="editpicz" name="editpicz" type="checkbox" onclick="fronttoback('profilepic');">
@@ -72,7 +52,7 @@
                 </div>
 
                 <div class="txt-edt form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="cb_fname" name="cb_fname" onclick="showbox('cb_fname','b_fname','txt_fname');">
+                    <input class="form-check-input" type="checkbox" id="cb_fname" name="cb_fname" onclick="showbox('cb_fname','firstname','txt_fname');">
                     <label for="cb_fname">ชื่อจริง</label>
                     <div id='txt_fname' style="display:none; margin-top:5px">
                         <div class="textedttop">
@@ -100,7 +80,7 @@
                 </div>
 
                 <div class="txt-edt form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="cb_lname" name="cb_lname" onclick="showbox('cb_lname','b_lname','txt_lname');">
+                    <input class="form-check-input" type="checkbox" id="cb_lname" name="cb_lname" onclick="showbox('cb_lname','lastname','txt_lname');">
                     <label for="cb_lname">นามสกุล</label>
                     <div id='txt_lname' style="display:none; margin-top:5px">
                         <div class="textedttop">
@@ -128,7 +108,7 @@
                 </div>
 
                 <div class="txt-edt form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="cb_nname" name="cb_nname" onclick="showbox('cb_nname','b_nname','txt_nname');">
+                    <input class="form-check-input" type="checkbox" id="cb_nname" name="cb_nname" onclick="showbox('cb_nname','nname','txt_nname');">
                     <label for="cb_nname">ชื่อเล่น</label>
                     <div id='txt_nname' style="display:none; margin-top:5px">
                         <div class="textedttop">
@@ -156,7 +136,7 @@
                 </div>
 
                 <div class="txt-edt form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="cb_tel" name="cb_tel" onclick="showbox('cb_tel','b_tel','txt_tel');">
+                    <input class="form-check-input" type="checkbox" id="cb_tel" name="cb_tel" onclick="showbox('cb_tel','tel','txt_tel');">
                     <label for="cb_tel">เบอร์โทรศัพท์</label>
                     <div id='txt_tel' style="display:none; margin-top:5px">
                         <div class="textedttop">
@@ -184,7 +164,7 @@
                 </div>
 
                 <div class="txt-edt form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="cb_line" name="cb_line" onclick="showbox('cb_line','b_line','txt_line');">
+                    <input class="form-check-input" type="checkbox" id="cb_line" name="cb_line" onclick="showbox('cb_line','line','txt_line');">
                     <label for="cb_line">ไอดีไลน์</label>
                     <div id='txt_line' style="display:none; margin-top:5px">
                         <div class="textedttop">
@@ -212,7 +192,7 @@
                 </div>
 
                 <div class="txt-edt form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="cb_qrline" name="cb_qrline" onclick="showbox('cb_qrline','b_qrline','editqr');">
+                    <input class="form-check-input" type="checkbox" id="cb_qrline" name="cb_qrline" onclick="showbox('cb_qrline','qrline','editqr');">
                     <label for="cb_qrline">คิวอาโค้ด</label>
                     <div id="editqr" name="editqr" style="display:none; margin-left:40px; margin-top:5px">
                         <input class="form-check-input" id="editqrz" name="editqrz" type="checkbox" onclick="fronttoback('elemqr');">
@@ -221,7 +201,7 @@
                 </div>
 
                 <div class="txt-edt form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="cb_fb" name="cb_fb" onclick=" showbox('cb_fb','b_fb','txt_fb');">
+                    <input class="form-check-input" type="checkbox" id="cb_fb" name="cb_fb" onclick=" showbox('cb_fb','fb','txt_fb');">
                     <label for="cb_fb">เฟซบุ๊ก</label>
                     <div id='txt_fb' style="display:none; margin-top:5px">
                         <div class="textedttop">
@@ -249,7 +229,7 @@
                 </div>
 
                 <div class="txt-edt form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="cb_ig" name="cb_ig" onclick="showbox('cb_ig','b_ig','txt_ig');">
+                    <input class="form-check-input" type="checkbox" id="cb_ig" name="cb_ig" onclick="showbox('cb_ig','ig','txt_ig');">
                     <label for="cb_ig">อินสตาแกรม</label>
                     <div id='txt_ig' style="display:none; margin-top:5px">
                         <div class="textedttop">
@@ -277,7 +257,7 @@
                 </div>
 
                 <div class="txt-edt form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="cb_address" name="cb_address" onclick="showbox('cb_address','b_address','txt_address');">
+                    <input class="form-check-input" type="checkbox" id="cb_address" name="cb_address" onclick="showbox('cb_address','address','txt_address');">
                     <label for="cb_address">พิกัดนัดรับสินค้า</label>
                     <div id='txt_address' style="display:none; margin-top:5px">
                         <div class="textedttop">
@@ -308,7 +288,6 @@
     </div>
 
     <div class="mb-3">
-        <button class="btn btn-success" id="save">บันทึก</button>
         <button class="btn btn-outline-secondary" type="submit" id="edit" name="edit">แก้ไข</button>
     </div>
 </div>
@@ -319,4 +298,20 @@
             $('.selectfont').append('<option value="<?php echo $row->fontname; ?>"><?php echo $row->fontname; ?></option>')
         <?php } ?>
     })
+</script>
+<script>
+    $(function() {
+        $("#firstname").css(<?php echo $style->t_fname; ?>);
+        $("#lastname").css(<?php echo $style->t_lname; ?>);
+        $("#nname").css(<?php echo $style->t_nname; ?>);
+        $("#tel").css(<?php echo $style->t_tel; ?>);
+        $("#line").css(<?php echo $style->t_line; ?>);
+        $("#qrline").css(<?php echo $style->t_qrline; ?>);
+        $("#fb").css(<?php echo $style->t_fb; ?>);
+        $("#ig").css(<?php echo $style->t_ig; ?>);
+        $("#profilepic").css(<?php echo $style->t_profilepic; ?>);
+        $("#address").css(<?php echo $style->t_address; ?>);
+        $("#containment").css(<?php echo $style->t_containment; ?>);
+        $("#preview").attr("src", "<?php echo base_url() . 'img/' . $style->t_background; ?>");
+    });
 </script>

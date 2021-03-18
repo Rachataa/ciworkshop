@@ -21,26 +21,15 @@ class Home extends CI_Controller
         $this->load->view('footer');
     }
 
-    public function design()
+    public function design($p_id)
     {
         $data['fontoption'] = $this->template_model->readfont();
+        $data['p_id'] = $p_id;
         $this->load->view('jquery');
         $this->load->view('css');
         $this->load->view('header');
         $this->load->view('navbar');
-        $this->load->view('dealer_view', $data);
-        $this->load->view('js');
-        $this->load->view('footer');
-    }
-
-    public function showcard()
-    {
-        $data['fontoption'] = $this->template_model->readfont();
-        $this->load->view('jquery');
-        $this->load->view('css');
-        $this->load->view('header');
-        $this->load->view('navbar');
-        $this->load->view('template_view', $data);
+        $this->load->view('create_view', $data);
         $this->load->view('js');
         $this->load->view('footer');
     }
@@ -64,8 +53,9 @@ class Home extends CI_Controller
         $this->load->view('css');
         $this->load->view('header');
         $this->load->view('navbar');
-        $this->load->view('table_showmember', $data); // show member in talble
+        $this->load->view('member_view', $data); // show member in talble
         $this->load->view('js');
         $this->load->view('footer');
     }
+    
 }

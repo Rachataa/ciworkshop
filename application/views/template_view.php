@@ -7,17 +7,8 @@
     </style>
 <?php } ?>
 <div class="container">
-    <form action="<?php echo site_url('Dealer/readtemplate'); ?>" method="POST">
-        <div class="input-group mb-3 mt-3">
-            <div class="col-2">
-                <input type="text" class="form-control" id="memberid" name="memberid" placeholder="User ID">
-            </div>
-            <button class="btn btn-secondary" type="submit" value="LOAD STYLE" id="load">เรียกดู</button>
-        </div>
-    </form>
-
     <div class="fixtemplate">
-        <div class="containment mb-3" id="containment" style="position: relative;">
+        <div class="containment mb-3 mt-3" id="containment" style="position: relative;">
             <div class="crop-img" style="position: absolute;">
                 <img id="background" src="<?php echo base_url() . 'img/inputlogo.png' ?>" />
             </div>

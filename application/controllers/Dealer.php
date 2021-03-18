@@ -10,79 +10,63 @@ class Dealer extends CI_Controller
 
     public function index()
     {
-        $this->load->view('jquery');
-        $this->load->view('css');
-        $this->load->view('Dealer_view');
-        $this->load->view('js');
-        
     }
 
     public function savetemplate()
     {
         $privilege = $this->input->post('privilege');
-        if ($privilege > 6) {
+        $checkprivilege = $this->template_model->checkduplicateprivilege($privilege);
+        if ($checkprivilege == FALSE) {
             echo $statusfile = json_encode(array(
                 'status' => '0',
-                'message' => 'Privilege Must be 1-6 !'
+                'message' => 'Cannot Save Data Is Already'
             ));
         } else {
-            $checkprivilege = $this->template_model->checkduplicateprivilege($privilege);
-            if ($checkprivilege == FALSE) {
+            $config['upload_path'] = './img/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['maxsize'] = '1000';
+            $config['max_width'] = '1200';
+            $config['max_height'] = '1200';
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('file')) {
                 echo $statusfile = json_encode(array(
                     'status' => '0',
-                    'message' => 'Cannot Save Data Is Already'
+                    'message' => $this->upload->display_errors()
                 ));
             } else {
-                $config['upload_path'] = './img/';
-                $config['allowed_types'] = 'gif|jpg|png';
-                $config['maxsize'] = '1000';
-                $config['max_width'] = '1200';
-                $config['max_height'] = '1200';
-                $this->load->library('upload', $config);
-                if (!$this->upload->do_upload('file')) {
-                    echo $statusfile = json_encode(array(
-                        'status' => '0',
-                        'message' => $this->upload->display_errors()
-                    ));
-                } else {
-                    $pic = $this->upload->data();
-                    $img = $pic['file_name'];
-                    $data = array(  //encode ทีละตัว ไม่งั้นจะเป็น Array ซ้อน array ไม่สามารถ add เข้า database ได้
-                        't_fname' => $this->input->post('firstname'),
-                        't_lname' => $this->input->post('lastname'),
-                        't_nname' => $this->input->post('nname'),
-                        't_tel' => $this->input->post('tel'),
-                        't_line' => $this->input->post('line'),
-                        't_qrline' => $this->input->post('qrline'),
-                        't_fb' => $this->input->post('fb'),
-                        't_ig' => $this->input->post('ig'),
-                        't_profilepic' => $this->input->post('profilepic'),
-                        'p_id' => $this->input->post('privilege'),
-                        't_address' => $this->input->post('address'),
-                        't_containment' => $this->input->post('containment'),
-                        't_background' => $img
-                    );
-                    $this->template_model->addstyle($data); //ส่งค่าไป model
-                    echo $statusfile = json_encode(array(
-                        'status' => '1',
-                        'message' => 'Success !'
-                    ));
-                }
+                $pic = $this->upload->data();
+                $img = $pic['file_name'];
+                $data = array(  //encode ทีละตัว ไม่งั้นจะเป็น Array ซ้อน array ไม่สามารถ add เข้า database ได้
+                    't_fname' => $this->input->post('firstname'),
+                    't_lname' => $this->input->post('lastname'),
+                    't_nname' => $this->input->post('nname'),
+                    't_tel' => $this->input->post('tel'),
+                    't_line' => $this->input->post('line'),
+                    't_qrline' => $this->input->post('qrline'),
+                    't_fb' => $this->input->post('fb'),
+                    't_ig' => $this->input->post('ig'),
+                    't_profilepic' => $this->input->post('profilepic'),
+                    'p_id' => $this->input->post('privilege'),
+                    't_address' => $this->input->post('address'),
+                    't_containment' => $this->input->post('containment'),
+                    't_background' => $img
+                );
+                $this->template_model->addstyle($data); //ส่งค่าไป model
+                echo $statusfile = json_encode(array(
+                    'status' => '1',
+                    'message' => 'Success !'
+                ));
             }
         }
     }
 
-    public function readtemplate()
+    public function readtemplate($memberid)
     {
-        $memberid = $this->input->post('memberid');
         $data['fontoption'] = $this->template_model->readfont();
         $data['style'] = $this->template_model->readstyle($memberid);
         if ($data['style'] === '0') {
             echo "<script type='text/javascript'>alert('No Template !');</script>";
-            redirect('home/showcard', 'refresh');
-        } else if ($data['style'] === '00') {
-            echo "<script type='text/javascript'>alert('No Member ID !');</script>";
-            redirect('home/showcard', 'refresh');
+            redirect('home/showmember', 'refresh');
         } else {
             $this->load->view('jquery');
             $this->load->view('css');
@@ -97,53 +81,46 @@ class Dealer extends CI_Controller
     public function edittemplate()
     {
         $privilege = $this->input->post('privilege');
-        if ($privilege > 6) {
+        $checkprivilege = $this->template_model->checkprivilegetoedit($privilege);
+        if ($checkprivilege == FALSE) {
             echo $statusfile = json_encode(array(
                 'status' => '0',
-                'message' => 'Privilege Must be 1-6 !'
+                'message' => 'NO PRIVILEGE ID !'
             ));
         } else {
-            $checkprivilege = $this->template_model->checkprivilegetoedit($privilege);
-            if ($checkprivilege == FALSE) {
+            $config['upload_path'] = './img/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['maxsize'] = '2000';
+            $config['max_width'] = '1200';
+            $config['max_height'] = '1200';
+            $this->load->library('upload', $config);
+            if (!$this->upload->do_upload('file')) {
                 echo $statusfile = json_encode(array(
                     'status' => '0',
-                    'message' => 'NO PRIVILEGE ID !'
+                    'message' => $this->upload->display_errors()
                 ));
             } else {
-                $config['upload_path'] = './img/';
-                $config['allowed_types'] = 'gif|jpg|png';
-                $config['maxsize'] = '2000';
-                $config['max_width'] = '1200';
-                $config['max_height'] = '1200';
-                $this->load->library('upload', $config);
-                if (!$this->upload->do_upload('file')) {
-                    echo $statusfile = json_encode(array(
-                        'status' => '0',
-                        'message' => $this->upload->display_errors()
-                    ));
-                } else {
-                    $pic = $this->upload->data();
-                    $img = $pic['file_name'];
-                    $data = array(  //encode ทีละตัว ไม่งั้นจะเป็น Array ซ้อน array ไม่สามารถ add เข้า database ได้
-                        't_fname' => $this->input->post('firstname'),
-                        't_lname' => $this->input->post('lastname'),
-                        't_nname' => $this->input->post('nname'),
-                        't_tel' => $this->input->post('tel'),
-                        't_line' => $this->input->post('line'),
-                        't_qrline' => $this->input->post('qrline'),
-                        't_fb' => $this->input->post('fb'),
-                        't_ig' => $this->input->post('ig'),
-                        't_profilepic' => $this->input->post('profilepic'),
-                        't_address' => $this->input->post('address'),
-                        't_containment' => $this->input->post('containment'),
-                        't_background' => $img
-                    );
-                    $this->template_model->editstyle($data, $privilege); //ส่งค่าไป model
-                    echo $statusfile = json_encode(array(
-                        'status' => '1',
-                        'message' => 'Edit Success !'
-                    ));
-                }
+                $pic = $this->upload->data();
+                $img = $pic['file_name'];
+                $data = array(  //encode ทีละตัว ไม่งั้นจะเป็น Array ซ้อน array ไม่สามารถ add เข้า database ได้
+                    't_fname' => $this->input->post('firstname'),
+                    't_lname' => $this->input->post('lastname'),
+                    't_nname' => $this->input->post('nname'),
+                    't_tel' => $this->input->post('tel'),
+                    't_line' => $this->input->post('line'),
+                    't_qrline' => $this->input->post('qrline'),
+                    't_fb' => $this->input->post('fb'),
+                    't_ig' => $this->input->post('ig'),
+                    't_profilepic' => $this->input->post('profilepic'),
+                    't_address' => $this->input->post('address'),
+                    't_containment' => $this->input->post('containment'),
+                    't_background' => $img
+                );
+                $this->template_model->editstyle($data, $privilege); //ส่งค่าไป model
+                echo $statusfile = json_encode(array(
+                    'status' => '1',
+                    'message' => 'Edit Success !'
+                ));
             }
         }
     }
@@ -171,9 +148,24 @@ class Dealer extends CI_Controller
         $this->template_model->deltemplate($p_id);
         redirect('', 'refresh');
     }
+
     public function deletefont($id)
     {
         $this->template_model->delfont($id);
         redirect('home/uploadfont', 'refresh');
+    }
+
+    public function getedit($p_id)
+    {
+        $data['fontoption'] = $this->template_model->readfont();
+        $data['id'] = $p_id;
+        $data['style'] = $this->template_model->readtoedit($p_id);
+        $this->load->view('jquery');
+        $this->load->view('css');
+        $this->load->view('header');
+        $this->load->view('navbar');
+        $this->load->view('edit_view', $data);
+        $this->load->view('js');
+        $this->load->view('footer');
     }
 }

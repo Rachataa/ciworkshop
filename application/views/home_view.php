@@ -19,24 +19,25 @@
                     <td><?php echo $row->p_conditions; ?></td>
                     <?php $status = $this->template_model->checktemplate($row->p_id);
                     if ($status == TRUE) { ?>
-                        <td>เปิดใช้งาน</td>
+                        <td>มีบัตรตัวแทน</td>
                         <td class="dropdown">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                 ดำเนินการ
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href="<?php echo site_url('dealer/getedit/') . $row->p_id; ?>">ดูตัวอย่าง</a></li>
                                 <li><a class="dropdown-item" href="<?php echo site_url('dealer/deletetemplate/') . $row->p_id; ?>" onclick="return confirm('ยืนยัน')">ลบ</a></li>
-                                <li><a class="dropdown-item" href="<?php echo site_url('home/design'); ?>">แก้ไข</a></li>
+                                <li><a class="dropdown-item" href="<?php echo site_url('dealer/getedit/') . $row->p_id; ?>">แก้ไข</a></li>
                             </ul>
                         </td>
                     <?php } else { ?>
-                        <td>ปิดใช้งาน</a></td>
+                        <td>ไม่มีบัตรตัวแทน</a></td>
                         <td class="dropdown">
                             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                 ดำเนินการ
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href="<?php echo site_url('home/design/')?>">สร้าง</a></li>
+                                <li><a class="dropdown-item" href="<?php echo site_url('home/design/') . $row->p_id ?>">สร้าง</a></li>
                             </ul>
                         </td>
                     <?php } ?>

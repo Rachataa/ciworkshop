@@ -199,7 +199,7 @@ $(function () {
                     alert($statusfile.message);
                 } else {
                     alert($statusfile.message);
-                    location.reload(true);
+                    window.location.replace(site_url + '/home/');
                 }
             }
         });
@@ -209,8 +209,7 @@ $(function () {
 $(function () {
     $("#edit").click(function () {
         let formData = new FormData();
-
-        if ($("#cb_fname").prop('checked')) {
+        if ($("#cb_fname").prop('checked') || $("#firstname").css("display") == "block") {
             let firstname = $("#firstname").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -218,7 +217,7 @@ $(function () {
         } else {
             formData.append('firstname', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_lname").prop('checked')) {
+        if ($("#cb_lname").prop('checked') || $("#lastname").css("display") == "block") {
             let lastname = $("#lastname").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -226,7 +225,7 @@ $(function () {
         } else {
             formData.append('lastname', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_address").prop('checked')) {
+        if ($("#cb_address").prop('checked') || $("#address").css("display") == "block") {
             let address = $("#address").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -234,7 +233,7 @@ $(function () {
         } else {
             formData.append('address', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_nname").prop('checked')) {
+        if ($("#cb_nname").prop('checked') || $("#nname").css("display") == "block") {
             let nname = $("#nname").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -242,7 +241,7 @@ $(function () {
         } else {
             formData.append('nname', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_tel").prop('checked')) {
+        if ($("#cb_tel").prop('checked') || $("#tel").css("display") == "block") {
             let tel = $("#tel").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -250,7 +249,7 @@ $(function () {
         } else {
             formData.append('tel', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_line").prop('checked')) {
+        if ($("#cb_line").prop('checked') || $("#line").css("display") == "block") {
             let line = $("#line").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -258,7 +257,7 @@ $(function () {
         } else {
             formData.append('line', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_qrline").prop('checked')) {
+        if ($("#cb_qrline").prop('checked') || $("#qrline").css("display") == "block") {
             let qrline = $("#qrline").css([
                 "width", "height", "top", "left", "display", "z-index"
             ]);
@@ -266,7 +265,7 @@ $(function () {
         } else {
             formData.append('qrline', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_fb").prop('checked')) {
+        if ($("#cb_fb").prop('checked') || $("#fb").css("display") == "block") {
             let fb = $("#fb").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -274,7 +273,7 @@ $(function () {
         } else {
             formData.append('fb', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_ig").prop('checked')) {
+        if ($("#cb_ig").prop('checked') || $("#ig").css("display") == "block") {
             let ig = $("#ig").css([
                 "width", "height", "color", "top", "left", "font", "text-align", "text-decoration", "display"
             ]);
@@ -282,7 +281,7 @@ $(function () {
         } else {
             formData.append('ig', JSON.stringify({ "display": "none" }));
         }
-        if ($("#cb_profilepic").prop('checked')) {
+        if ($("#cb_profilepic").prop('checked') || $("#profilepic").css("display") == "block") {
             let profilepic = $("#profilepic").css([
                 "width", "height", "top", "left", "display", "z-index"
             ]);
@@ -309,7 +308,7 @@ $(function () {
                     alert($statusfile.message);
                 } else {
                     alert($statusfile.message);
-                    location.reload(true);
+                    window.location.replace(site_url + '/home/');
                 }
             }
         });

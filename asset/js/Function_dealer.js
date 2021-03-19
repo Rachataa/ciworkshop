@@ -289,9 +289,11 @@ $(function () {
         } else {
             formData.append('profilepic', JSON.stringify({ "display": "none" }));
         }
+        if ($('#img')[0].files[0]){
+            formData.append('file', $('#img')[0].files[0]);
+        }
 
         formData.append('containment', JSON.stringify($('#containment').css(["width", "height"])));
-        formData.append('file', $('#img')[0].files[0]);
         formData.append('privilege', $('#privilege').val());
 
         let site_url = $('#site_url').val();

@@ -26,6 +26,7 @@
                 </div>
                 <div id="profilepic" class="textbox-pic" style="display: none;">
                     <img class="img-template" src="<?php echo base_url() . 'img/profilepiclogo.png' ?>" />
+                    <div class="eyemark"></div>
                 </div>
                 <div id="firstname" class="textbox" style="display: none;">ชื่อจริง</div>
                 <div id="lastname" class="textbox" style="display: none;">นามสกุล</div>
@@ -34,6 +35,7 @@
                 <div id="line" class="textbox" style="display: none;">ID LINE</div>
                 <div id="qrline" class="textbox-pic" style="display: none;">
                     <img id="elemqr" class="img-template" style="z-index: 0;" src="<?php echo base_url() . 'img/qrlogo.png' ?>" />
+                    <div class="eyemark"></div>
                 </div>
                 <div id="fb" class="textbox" style="display: none;">FACEBOOK</div>
                 <div id="ig" class="textbox" style="display: none;">Instagram</div>

@@ -289,7 +289,7 @@ $(function () {
         } else {
             formData.append('profilepic', JSON.stringify({ "display": "none" }));
         }
-        if ($('#img')[0].files[0]){
+        if ($('#img')[0].files[0]) {
             formData.append('file', $('#img')[0].files[0]);
         }
 
@@ -306,14 +306,15 @@ $(function () {
             data: formData,
             dataType: "json",
             success: function ($statusfile) {
-                if ($statusfile.status == '0') {
-                    alert($statusfile.message);
-                } else {
+                if ($statusfile.status == 1){
                     alert($statusfile.message);
                     window.location.replace(site_url + '/home/');
+                }else{
+                    alert('Failed !')
                 }
             }
-        });
+        }
+        );
     });
 });
 

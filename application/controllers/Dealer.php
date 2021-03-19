@@ -24,7 +24,7 @@ class Dealer extends CI_Controller
         } else {
             $config['upload_path'] = './img/';
             $config['allowed_types'] = 'gif|jpg|png';
-            $config['maxsize'] = '1000';
+            $config['maxsize'] = '5';
             $config['max_width'] = '1200';
             $config['max_height'] = '1200';
             $this->load->library('upload', $config);
@@ -83,7 +83,7 @@ class Dealer extends CI_Controller
         $privilege = $this->input->post('privilege');
         $config['upload_path'] = './img/';
         $config['allowed_types'] = 'gif|jpg|png';
-        $config['maxsize'] = '2000';
+        $config['maxsize'] = '5';
         $config['max_width'] = '1200';
         $config['max_height'] = '1200';
         $this->load->library('upload', $config);
